@@ -43,14 +43,14 @@ public class SecurityConfig {
         	formLogin
         		.loginPage("/user/login")
         		.loginProcessingUrl("/user/auth")
-        		.usernameParameter("name")
+        		.usernameParameter("id")
         		.passwordParameter("password")
         		.defaultSuccessUrl("/")
         		.failureUrl("/user/login?result=fail")
         		.failureHandler(new AuthenticationFailureHandler() {
 					@Override
 					public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
-						request.setAttribute("name", request.getParameter("name"));
+						request.setAttribute("id", request.getParameter("id"));
 						request
 							.getRequestDispatcher("/user/login")
 							.forward(request, response);

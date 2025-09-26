@@ -23,6 +23,6 @@ public class UserDetailsImpl extends UserVo implements UserDetails  {
 
 	@Override
 	public String getUsername() {
-		return getName();
+		return getId();
 	}
 }

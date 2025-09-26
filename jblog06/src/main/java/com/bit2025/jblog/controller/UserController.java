@@ -27,6 +27,11 @@ public class UserController {
 		return "redirect:/user/joinsuccess";
 	}
 
+	@RequestMapping("/joinsuccess")
+	public String joinsuccess() {
+		return "user/joinsuccess";
+	}
+
 	@RequestMapping("/login")
 	public String login() {
 		return "user/login";

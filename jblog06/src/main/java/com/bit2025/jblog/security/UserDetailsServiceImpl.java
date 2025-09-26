@@ -5,7 +5,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import com.bit2025.jblog.repository.UserRepository;
-import com.bit2025.jblog.vo.UserVo;
 
 public class UserDetailsServiceImpl implements UserDetailsService {
 	private UserRepository userRepository;
@@ -16,6 +15,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-    	return userRepository.findByName(username);
+    	return userRepository.findById(username, UserDetailsImpl.class);
     }
 }

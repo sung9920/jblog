@@ -9,11 +9,11 @@
 		]]>
 	</insert>
 
-	<select id="findByEmail" parameterType="string" resultType="map">
+	<select id="findById" parameterType="string" resultType="map">
 		<![CDATA[
-		select id, name, role, password
+		select id, name, password
 		  from user
-		 where email = #{email}
+		 where id = #{id}
 		]]>
 	</select>
 
