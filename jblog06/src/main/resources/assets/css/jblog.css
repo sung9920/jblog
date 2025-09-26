@@ -8,7 +8,7 @@ fieldset		{ border:none }
 a:link 			{ color:#696969; text-decoration:none; font-weight:bold; }
 a:visited 		{ color:#696969; text-decoration:none; font-weight:bold; }
 a:active 		{ color:#696969; text-decoration:none; font-weight:bold; }
-a:hover 		{ color:#dc143c; text-decoration:none; font-weight:bold; }
+a:hover 		{ color:#dc143c; text-decoration:none; font-weight:bold; } 
 
 
 
@@ -41,7 +41,7 @@ a:hover 		{ color:#dc143c; text-decoration:none; font-weight:bold; }
 .welcome-message								{ height: 200px }
 .welcome-message span							{ font-size:1.2em; font-weight:bold; color:#777 }
 .welcome-message span:before					{ content: url(/jblog06/assets/images/bul1.gif);}
-.welcome-message span:after						{ content: url(/jblog06/assets/images/bul2.gif);}
+.welcome-message span:after						{ content: url(/jblog06/assets/images/bul2.gif);}		
 
 
 
@@ -55,7 +55,7 @@ div#footer					{ clear:both; width:100% }
 
 /* header */
 div#header h1		{ text-align:center; line-height:100px; margin:0; color:#fff }
-div#header ul		{ height:20px }
+div#header ul		{ height:20px } 
 div#header li		{ float:right; margin-right:10px; }
 div#header li a 	{ color:#fff; font-weight:bold; text-decoration:none; }
 
