@@ -20,6 +20,9 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.firewall.DefaultHttpFirewall;
 
+import com.bit2025.jblog.repository.UserRepository;
+import com.bit2025.jblog.security.UserDetailsServiceImpl;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -87,21 +90,21 @@ public class SecurityConfig {
         return http.build();
     }
 
-//    @Bean
-//    public AuthenticationManager authenticationManager(UserDetailsService userDetailsService, PasswordEncoder passwordEncoder) {
-//    	DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider(userDetailsService);
-//    	authenticationProvider.setPasswordEncoder(passwordEncoder);
-//
-//    	return new ProviderManager(authenticationProvider);
-//    }
+    @Bean
+    public AuthenticationManager authenticationManager(UserDetailsService userDetailsService, PasswordEncoder passwordEncoder) {
+    	DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider(userDetailsService);
+    	authenticationProvider.setPasswordEncoder(passwordEncoder);
+
+    	return new ProviderManager(authenticationProvider);
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
     	return new BCryptPasswordEncoder(4); // 4 ~ 31
     }
 
-//    @Bean
-//    public UserDetailsService userDetailsService(UserRepository userRepository) {
-//    	return new UserDetailsServiceImpl(userRepository);
-//    }
+    @Bean
+    public UserDetailsService userDetailsService(UserRepository userRepository) {
+    	return new UserDetailsServiceImpl(userRepository);
+    }
 }

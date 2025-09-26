@@ -2,6 +2,7 @@ package com.bit2025.jblog.repository;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;
 
 import com.bit2025.jblog.vo.UserVo;
@@ -15,6 +16,10 @@ public class UserRepository {
 	public int insert(UserVo userVo) {
 		return sqlSession.insert("user.insert", userVo);
 	}
+
+    public UserDetails findByName(String name) {
+        return sqlSession.selectOne("user.findByName", name);
+    }
 
 
 }
