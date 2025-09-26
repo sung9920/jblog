@@ -11,19 +11,18 @@
 </head>
 <body>
 	<div class="center-content">
-		<h1 class="logo">JBlog</h1>
+		<h1 class="logo">
+			<a href="${pageContext.request.contextPath}/">JBlog</a>
+		</h1>
 		<ul class="menu">
-			<li><a href="">로그인</a></li>
-			<li><a href="">회원가입</a></li>
-			<li><a href="">로그아웃</a></li>
-			<li><a href="">내블로그</a></li>
+			<li><a href="${pageContext.request.contextPath}/user/login">로그인</a></li>
 		</ul>
 		<form class="join-form" id="join-form" method="post" action="">
 			<label class="block-label" for="name">이름</label>
 			<input id="name"name="name" type="text" value="">
-			
+
 			<label class="block-label" for="blog-id">아이디</label>
-			<input id="blog-id" name="id" type="text"> 
+			<input id="blog-id" name="id" type="text">
 			<input id="btn-checkemail" type="button" value="id 중복체크">
 			<img id="img-checkemail" style="display: none;" src="${pageContext.request.contextPath}/assets/images/check.png">
 
