@@ -1,6 +1,7 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="jakarta.tags.core" prefix="c"%>
+<%@ taglib uri="jakarta.tags.fmt" prefix="fmt"%>
+<%@ taglib uri="jakarta.tags.functions" prefix="fn"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!doctype html>
 <html>
@@ -14,9 +15,14 @@
 		<div id="header">
 			<h1>Spring 이야기</h1>
 			<ul>
-				<li><a href="">로그인</a></li>
-				<li><a href="">로그아웃</a></li>
-				<li><a href="">블로그 관리</a></li>
+				<sec:authorize access="!isAuthenticated()">
+					<li><a href="${pageContext.request.contextPath}/user/login">로그인</a></li>
+				</sec:authorize>
+				<sec:authorize access="isAuthenticated()">
+					<li><a href="${pageContext.request.contextPath}/user/logout">로그아웃</a></li>
+					<li><a href="${pageContext.request.contextPath}/blog/admin-basic">블로그 관리</a></li>
+				</sec:authorize>
+				<li><a href="${pageContext.request.contextPath}/">JBLOG</a></li>
 			</ul>
 		</div>
 		<div id="wrapper">
@@ -55,10 +61,10 @@
 				<li><a href="">기타</a></li>
 			</ul>
 		</div>
-		
+
 		<div id="footer">
 			<p>
-				<strong>Spring 이야기</strong> is powered by JBlog (c)2016
+				<strong>Spring 이야기</strong> is powered by JBlog (c)2025
 			</p>
 		</div>
 	</div>

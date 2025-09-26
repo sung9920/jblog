@@ -2,6 +2,7 @@ package com.bit2025.jblog.repository;
 
 import java.util.Map;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,8 +22,8 @@ public class UserRepository {
 	}
 
     public UserDetails findById(String id, Class<UserDetailsImpl> result) {
-    	Map<> map = sqlSession.selectOne("user.findById", id);
-        return
+    	Map<String, Object> map = sqlSession.selectOne("user.findById", id);
+        return new ObjectMapper().convertValue(map, result);
     }
 
 

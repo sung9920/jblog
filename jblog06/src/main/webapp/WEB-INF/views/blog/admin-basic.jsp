@@ -34,23 +34,23 @@
 			      		</tr>
 			      		<tr>
 			      			<td class="t">로고이미지</td>
-			      			<td><img src="${pageContext.request.contextPath}/assets/images/spring-logo.jpg"></td>      			
-			      		</tr>      		
+			      			<td><img src="${pageContext.request.contextPath}/assets/images/spring-logo.jpg"></td>
+			      		</tr>
 			      		<tr>
 			      			<td class="t">&nbsp;</td>
-			      			<td><input type="file" name="logo-file"></td>      			
-			      		</tr>           		
+			      			<td><input type="file" name="logo-file"></td>
+			      		</tr>
 			      		<tr>
 			      			<td class="t">&nbsp;</td>
-			      			<td class="s"><input type="submit" value="기본설정 변경"></td>      			
-			      		</tr>           		
+			      			<td class="s"><input type="submit" value="기본설정 변경"></td>
+			      		</tr>
 			      	</table>
 				</form>
 			</div>
 		</div>
 		<div id="footer">
 			<p>
-				<strong>Spring 이야기</strong> is powered by JBlog (c)2016
+				<strong>Spring 이야기</strong> is powered by JBlog (c)2025
 			</p>
 		</div>
 	</div>
