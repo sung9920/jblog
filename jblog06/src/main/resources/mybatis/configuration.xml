@@ -3,9 +3,13 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.bit2025.jblog.vo.UserVo" alias="uservo"/>
+		<typeAlias type="com.bit2025.jblog.vo.BlogVo" alias="blogVo"/>
+		<typeAlias type="com.bit2025.jblog.vo.CategoryVo" alias="categoryVo"/>
 	</typeAliases>
 
 	<mappers>
 		<mapper resource="mybatis/mappers/user.xml" />
+		<mapper resource="mybatis/mappers/blog.xml" />
+		<mapper resource="mybatis/mappers/category.xml" />
 	</mappers>
 </configuration>
