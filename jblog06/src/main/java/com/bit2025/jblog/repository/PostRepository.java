@@ -1,23 +1,21 @@
 package com.bit2025.jblog.repository;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.bit2025.jblog.vo.BlogVo;
+import com.bit2025.jblog.vo.PostVo;
 
 @Repository
-public class BlogRepository {
+public class PostRepository {
 
 	@Autowired
 	private SqlSession sqlSession;
 
-	public int insert(BlogVo blogVo) {
-		return sqlSession.insert("blog.insert", blogVo);
-	}
-
-	public BlogVo findById(String blogId) {
-		return sqlSession.selectOne("blog.findById", blogId);
+	public List<PostVo> findById(Long categoryId) {
+		return sqlSession.selectList("post.findById", categoryId);
 	}
 
 }

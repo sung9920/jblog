@@ -1,15 +1,12 @@
 package com.bit2025.jblog.repository;
 
-import com.bit2025.jblog.security.UserDetailsImpl;
-import com.bit2025.jblog.vo.CategoryVo;
-import com.bit2025.jblog.vo.UserVo;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;
 
-import java.util.Map;
+import com.bit2025.jblog.vo.CategoryVo;
 
 @Repository
 public class CategoryRepository {
@@ -19,6 +16,10 @@ public class CategoryRepository {
 
 	public int insert(CategoryVo categoryVo) {
 		return sqlSession.insert("category.insert", categoryVo);
+	}
+
+	public List<CategoryVo> findById(String blogId) {
+		return sqlSession.selectList("category.findById", blogId);
 	}
 
 }
