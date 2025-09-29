@@ -39,7 +39,7 @@ public class UserService {
 		// 2. default blog 생성 (blog)
 		BlogVo blogVo = new BlogVo();
 		blogVo.setBlogId(userVo.getId());
-		blogVo.setTitle(userVo.getName() + "님의 블로그");
+		blogVo.setTitle(userVo.getId() + "님의 블로그");
 		blogVo.setProfile("/assets/images/spring-logo.jpg");
 		blogRepository.insert(blogVo);
 

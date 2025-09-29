@@ -17,8 +17,8 @@ import com.bit2025.jblog.vo.CategoryVo;
 import com.bit2025.jblog.vo.PostVo;
 
 @Controller
-@RequestMapping("/{blogId:^(?!assets).*$}")
-public class BlogController {
+@RequestMapping("/{blogId}/admin")
+public class AdminController {
 
 	@Autowired
 	private BlogService blogService;
@@ -29,12 +29,10 @@ public class BlogController {
 	@Autowired
 	private PostService postService;
 
-    @GetMapping({ "", "/", "/{categoryId}", "/{categoryId}/{postId}" })
-    public String main(
+    @GetMapping("/basic")
+    public String basic(
     		Model model,
-            @PathVariable("blogId") String blogId,
-            @PathVariable(value = "categoryId", required = false) Long categoryId,
-            @PathVariable(value = "postId", required = false) Long postId) {
+            @PathVariable("blogId") String blogId) {
 
     	BlogVo blogVo = blogService.getContents(blogId);
     	model.addAttribute("blogVo", blogVo);
@@ -42,15 +40,7 @@ public class BlogController {
     	List<CategoryVo> categoryVo = categoryService.getList(blogId);
     	model.addAttribute("categoryList", categoryVo);
 
-        if (categoryId == null) {
-        	categoryId = (long) 1;
-        	List<PostVo> postVo = postService.getList(categoryId);
-        	model.addAttribute("postList", postVo);
-        } else if (postId == null) {
-        	System.out.println("set default postId");
-        }
-
-    	return "blog/main";
+    	return "blog/admin-basic";
     }
 
 }

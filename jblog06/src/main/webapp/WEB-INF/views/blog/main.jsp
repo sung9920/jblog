@@ -12,19 +12,7 @@
 </head>
 <body>
 	<div id="container">
-		<div id="header">
-			<h1>${blogVo.title }</h1>
-			<ul>
-				<sec:authorize access="!isAuthenticated()">
-					<li><a href="${pageContext.request.contextPath}/user/login">로그인</a></li>
-				</sec:authorize>
-				<sec:authorize access="isAuthenticated()">
-					<li><a href="${pageContext.request.contextPath}/user/logout">로그아웃</a></li>
-					<li><a href="${pageContext.request.contextPath}/blog/management">블로그 관리</a></li>
-				</sec:authorize>
-				<li><a href="${pageContext.request.contextPath}/">JBLOG</a></li>
-			</ul>
-		</div>
+		<c:import url="/WEB-INF/views/includes/header.jsp" />
 		<div id="wrapper">
 			<div id="content">
 				<div class="blog-content">
@@ -58,12 +46,7 @@
 				</c:forEach>
 			</ul>
 		</div>
-
-		<div id="footer">
-			<p>
-				<strong>Spring 이야기</strong> is powered by JBlog (c)2025
-			</p>
-		</div>
+		<c:import url="/WEB-INF/views/includes/footer.jsp" />
 	</div>
 </body>
 </html>
