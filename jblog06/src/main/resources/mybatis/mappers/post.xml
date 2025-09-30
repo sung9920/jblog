@@ -5,7 +5,7 @@
 		<![CDATA[
         insert
         into post (title, contents, reg_date, category_id)
-        values (#{title}, #{contents}, #{reg_date}, #{categoryId})
+        values (#{title}, #{contents}, now(), #{categoryId})
         ]]>
 		<selectKey keyProperty="id" resultType="long" order="AFTER">
 			<![CDATA[
@@ -14,13 +14,24 @@
 		</selectKey>
 	</insert>
 
-	<select id="findById" parameterType="long" resultType="postvo">
+	<select id="findByCategoryId" parameterType="long" resultType="postvo">
 		<![CDATA[
-        select title,
+        select id,
+        	   title,
         	   contents,
-        	   date_format(reg_date, '%Y/%m/%d')as regDate
+        	   date_format(reg_date, '%Y/%m/%d')as regDate,
+        	   category_id as categoryId
        	  from post
          where category_id = #{categoryId}
+        ]]>
+	</select>
+
+	<select id="findByPostId" parameterType="long" resultType="postvo">
+		<![CDATA[
+        select title,
+        	   contents
+       	  from post
+         where id = #{postId}
         ]]>
 	</select>
 

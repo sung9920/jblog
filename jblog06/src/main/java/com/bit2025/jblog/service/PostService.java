@@ -13,8 +13,17 @@ public class PostService {
 
 	@Autowired
 	private PostRepository postRepository;
+
 	public List<PostVo> getList(Long categoryId) {
-		return postRepository.findById(categoryId);
+		return postRepository.findByCategoryId(categoryId);
+	}
+
+	public PostVo getContents(Long postId) {
+		return postRepository.findByPostId(postId);
+	}
+
+	public void addPost(PostVo postVo) {
+		postRepository.insert(postVo);
 	}
 
 }

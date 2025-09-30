@@ -40,7 +40,7 @@ public class UserService {
 		BlogVo blogVo = new BlogVo();
 		blogVo.setBlogId(userVo.getId());
 		blogVo.setTitle(userVo.getId() + "님의 블로그");
-		blogVo.setProfile("/assets/images/spring-logo.jpg");
+		blogVo.setProfile("/assets/upload-images/spring-logo.jpg");
 		blogRepository.insert(blogVo);
 
 		// 3. default category 생성 (category)

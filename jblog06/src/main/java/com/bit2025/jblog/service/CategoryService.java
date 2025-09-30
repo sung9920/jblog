@@ -18,4 +18,12 @@ public class CategoryService {
 		return categoryRepository.findById(blogId);
 	}
 
+	public void addCategory(CategoryVo categoryVo) {
+		categoryRepository.insert(categoryVo);
+	}
+
+	public void delCategory(Long categoryId) {
+		categoryRepository.delete(categoryId);
+	}
+
 }

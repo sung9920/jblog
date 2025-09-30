@@ -13,9 +13,11 @@ public class BlogService {
 	private BlogRepository blogRepository;
 
 	public BlogVo getContents(String blogId) {
-		BlogVo blogVo = blogRepository.findById(blogId);
+		return blogRepository.findById(blogId);
+	}
 
-		return blogVo;
+	public void updateBlog(BlogVo blogvo) {
+		blogRepository.update(blogvo);
 	}
 
 }

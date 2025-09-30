@@ -22,4 +22,8 @@ public class CategoryRepository {
 		return sqlSession.selectList("category.findById", blogId);
 	}
 
+	public int delete(Long categoryId) {
+		return sqlSession.delete("category.delete", categoryId);
+	}
+
 }

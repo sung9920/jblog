@@ -9,6 +9,8 @@ public class CategoryVo {
 
 	private String blogId;
 
+	private Long postCount;
+
 	public Long getId() {
 		return id;
 	}
@@ -41,13 +43,17 @@ public class CategoryVo {
 		this.blogId = blogId;
 	}
 
+	public Long getPostCount() {
+		return postCount;
+	}
+
+	public void setPostCount(Long postCount) {
+		this.postCount = postCount;
+	}
+
 	@Override
 	public String toString() {
-		return "CategoryVo{" +
-				"id='" + id + '\'' +
-				", name='" + name + '\'' +
-				", description='" + description + '\'' +
-				", blogId='" + blogId + '\'' +
-				'}';
+		return "CategoryVo [id=" + id + ", name=" + name + ", description=" + description + ", blogId=" + blogId
+				+ ", postCount=" + postCount + "]";
 	}
 }

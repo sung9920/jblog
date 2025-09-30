@@ -19,6 +19,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.firewall.DefaultHttpFirewall;
+import org.springframework.security.web.util.matcher.RegexRequestMatcher;
 
 import com.bit2025.jblog.repository.UserRepository;
 import com.bit2025.jblog.security.UserDetailsServiceImpl;
@@ -66,15 +67,7 @@ public class SecurityConfig {
 //    	.authorizeHttpRequests(authorizeRequest -> {
 //    		/* ACL */
 //    		authorizeRequest
-//				.requestMatchers(new RegexRequestMatcher("^/admin/?.*$", null))
-//				.hasRole("ADMIN")
-//
-//				.requestMatchers(new RegexRequestMatcher("^/user/update$", null))
-//				.hasAnyRole("USER", "ADMIN")
-//
-//				.requestMatchers(new RegexRequestMatcher("^/board/?(write|delete|modify|reply).*$", null))
-//				.hasAnyRole("USER", "ADMIN")
-//
+//				.requestMatchers(new RegexRequestMatcher("^/admin/?.*$", null)).authenticated()
 //				.anyRequest().permitAll();
 //
 //    	})

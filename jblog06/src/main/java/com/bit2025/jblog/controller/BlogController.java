@@ -43,12 +43,18 @@ public class BlogController {
     	model.addAttribute("categoryList", categoryVo);
 
         if (categoryId == null) {
-        	categoryId = (long) 1;
-        	List<PostVo> postVo = postService.getList(categoryId);
-        	model.addAttribute("postList", postVo);
-        } else if (postId == null) {
-        	System.out.println("set default postId");
+        	categoryId = categoryVo.get(0).getId();
         }
+
+    	List<PostVo> postVo = postService.getList(categoryId);
+    	model.addAttribute("postList", postVo);
+
+        if (postId == null && !postVo.isEmpty()) {
+        	postId = postVo.get(0).getId();
+        }
+
+    	PostVo post = postService.getContents(postId);
+    	model.addAttribute("post", post);
 
     	return "blog/main";
     }
