@@ -16,6 +16,9 @@
 		<div id="wrapper">
 			<div id="content">
 				<div class="blog-content">
+				<c:if test="${post == null}">
+					<img src="${pageContext.request.contextPath}/assets/images/teong.png" style="width:400px; height:200px">
+				</c:if>
 					<h4>${post.title }</h4>
 					<p style="white-space: pre-wrap;">${post.contents }</p>
 				</div>
