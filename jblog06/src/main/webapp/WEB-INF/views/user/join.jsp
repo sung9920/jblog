@@ -12,8 +12,7 @@
 <script>
 $(function() {
 	$("#btn-checkid").click(function() {
-		console.log("button click!");
-		var id = $("#blog-id").val();
+		var id = $("#id").val();
 		if(!id) {
 			return;
 		}
@@ -39,7 +38,7 @@ $(function() {
 
 				alert("사용가능한 아이디입니다.");
 				$("#btn-checkid").hide();
-				$("#blog-id").prop("disabled", true);
+				$("#id").prop("disabled", true);
 			},
 			error: function(xhr, status, err) {
 				console.error(err);
@@ -62,7 +61,7 @@ $(function() {
 			<input id="name"name="name" type="text" value="">
 
 			<label class="block-label" for="blog-id">아이디</label>
-			<input id="blog-id" name="id" type="text">
+			<input id="id" name="id" type="text">
 			<input id="btn-checkid" type="button" value="id 중복체크">
 			<img id="img-checkid" style="display: none;" src="${pageContext.request.contextPath}/assets/images/check.png">
 
