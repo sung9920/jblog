@@ -17,6 +17,13 @@
 		]]>
 	</select>
 
+	<select id="findAll" resultType="uservo">
+		<![CDATA[
+		select *
+		  from user
+		]]>
+	</select>
+
 	<update id="update" parameterType="uservo">
 		<choose>
 			<when test='password == ""'>
