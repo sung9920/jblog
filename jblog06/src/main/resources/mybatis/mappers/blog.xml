@@ -12,7 +12,8 @@
 	<select id="findById" parameterType="string" resultType="blogvo">
 		<![CDATA[
         select title,
-        	   profile
+        	   profile,
+        	   blog_id as blogId
        	  from blog
          where blog_id = #{blogId}
         ]]>

@@ -14,7 +14,6 @@
 	<div id="container">
 		<c:import url="/WEB-INF/views/includes/header.jsp" />
 		<div id="wrapper">
-		<sec:authentication property="principal.username" var="userId"/>
 			<div id="content">
 				<div class="blog-content">
 					<h4>${post.title }</h4>
@@ -22,7 +21,7 @@
 				</div>
 				<ul class="blog-list">
 					<c:forEach items="${postList }" var="postVo">
-					<li><a href="${pageContext.request.contextPath}/${userId }/${postVo.categoryId }/${postVo.id}">${postVo.title }</a> <span>${postVo.regDate }</span>	</li>
+					<li><a href="${pageContext.request.contextPath}/${blogVo.blogId }/${postVo.categoryId }/${postVo.id}">${postVo.title }</a> <span>${postVo.regDate }</span>	</li>
 					</c:forEach>
 				</ul>
 			</div>
@@ -38,7 +37,7 @@
 			<h2>카테고리</h2>
 			<ul>
 				<c:forEach items="${categoryList }" var="categoryVo">
-				<li><a href="${pageContext.request.contextPath}/${userId }/${categoryVo.id }">${categoryVo.name }</a></li>
+				<li><a href="${pageContext.request.contextPath}/${blogVo.blogId }/${categoryVo.id }">${categoryVo.name }</a></li>
 				</c:forEach>
 			</ul>
 		</div>

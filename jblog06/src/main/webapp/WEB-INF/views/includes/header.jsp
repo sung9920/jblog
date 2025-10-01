@@ -5,7 +5,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <div id="header">
-	<sec:authentication property="principal.username" var="userId"/>
 	<h1>
 		<a href="${pageContext.request.contextPath}/${userId }">${blogVo.title }</a>
 	</h1>
@@ -14,6 +13,7 @@
 			<li><a href="${pageContext.request.contextPath}/user/login">로그인</a></li>
 		</sec:authorize>
 		<sec:authorize access="isAuthenticated()">
+			<sec:authentication property="principal.username" var="userId"/>
 			<li><a href="${pageContext.request.contextPath}/user/logout">로그아웃</a></li>
 			<li><a href="${pageContext.request.contextPath}/${userId }/admin/basic">블로그 관리</a></li>
 		</sec:authorize>
