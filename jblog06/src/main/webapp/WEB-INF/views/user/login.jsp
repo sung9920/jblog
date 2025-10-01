@@ -9,7 +9,15 @@
 <title>JBlog</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jblog.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.9.0.js"></script>
+<script>
+$(function() {
+
+});
+</script>
 </head>
+<c:if test="${param.result == 'fail'}">
+    <script>alert('아이디 또는 비밀번호가 잘못되었습니다.');</script>
+</c:if>
 <body>
 	<div class="center-content">
 		<h1 class="logo">

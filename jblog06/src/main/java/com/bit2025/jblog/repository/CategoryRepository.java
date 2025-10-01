@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.bit2025.jblog.vo.CategoryVo;
+import com.bit2025.jblog.vo.UserVo;
 
 @Repository
 public class CategoryRepository {

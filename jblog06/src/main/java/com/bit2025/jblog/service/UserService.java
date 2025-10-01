@@ -1,16 +1,17 @@
 package com.bit2025.jblog.service;
 
-import com.bit2025.jblog.repository.BlogRepository;
-import com.bit2025.jblog.repository.CategoryRepository;
-import com.bit2025.jblog.vo.BlogVo;
-import com.bit2025.jblog.vo.CategoryVo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import com.bit2025.jblog.repository.UserRepository;
-import com.bit2025.jblog.vo.UserVo;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.bit2025.jblog.repository.BlogRepository;
+import com.bit2025.jblog.repository.CategoryRepository;
+import com.bit2025.jblog.repository.UserRepository;
+import com.bit2025.jblog.vo.BlogVo;
+import com.bit2025.jblog.vo.CategoryVo;
+import com.bit2025.jblog.vo.UserVo;
 
 @Service
 public class UserService {
@@ -49,5 +50,9 @@ public class UserService {
 		categoryVo.setDescription("기본으로 생성되는 카테고리입니다. ");
 		categoryVo.setBlogId(blogVo.getBlogId());
 		categoryRepository.insert(categoryVo);
+	}
+
+	public UserVo getUser(String id) {
+		return userRepository.findById(id, UserVo.class);
 	}
 }

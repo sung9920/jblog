@@ -19,7 +19,6 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.firewall.DefaultHttpFirewall;
-import org.springframework.security.web.util.matcher.RegexRequestMatcher;
 
 import com.bit2025.jblog.repository.UserRepository;
 import com.bit2025.jblog.security.UserDetailsServiceImpl;
@@ -47,16 +46,16 @@ public class SecurityConfig {
         		.usernameParameter("id")
         		.passwordParameter("password")
         		.defaultSuccessUrl("/")
-        		.failureUrl("/user/login?result=fail")
-        		.failureHandler(new AuthenticationFailureHandler() {
-					@Override
-					public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
-						request.setAttribute("id", request.getParameter("id"));
-						request
-							.getRequestDispatcher("/user/login")
-							.forward(request, response);
-					}
-        		});
+        		.failureUrl("/user/login?result=fail");
+//        		.failureHandler(new AuthenticationFailureHandler() {
+//					@Override
+//					public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
+//						request.setAttribute("id", request.getParameter("id"));
+//						request
+//							.getRequestDispatcher("/user/login")
+//							.forward(request, response);
+//					}
+//        		});
 
         })
         .logout(logout -> {

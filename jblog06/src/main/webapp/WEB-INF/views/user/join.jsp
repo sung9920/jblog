@@ -7,7 +7,47 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>JBlog</title>
-<Link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jblog.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jblog.css">
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.9.0.js"></script>
+<script>
+$(function() {
+	$("#btn-checkid").click(function() {
+		console.log("button click!");
+		var id = $("#blog-id").val();
+		if(!id) {
+			return;
+		}
+
+		$.ajax({
+			url: "${pageContext.request.contextPath }/api/user/checkid?id=" + id,
+			type: "get",
+			dataType: "json",
+			success: function(response) {
+				console.log(response);
+
+				if(response.result == "fail") {
+					console.error(response.message);
+					return;
+				}
+
+				if(response.data){
+					alert("아이디가 존재합니다. 다른 아이디를 사용해 주세요.");
+					$("#id").val("");
+					$("#id").focus();
+					return;
+				}
+
+				alert("사용가능한 아이디입니다.");
+				$("#btn-checkid").hide();
+				$("#blog-id").prop("disabled", true);
+			},
+			error: function(xhr, status, err) {
+				console.error(err);
+			}
+		});
+	});
+});
+</script>
 </head>
 <body>
 	<div class="center-content">
@@ -23,8 +63,8 @@
 
 			<label class="block-label" for="blog-id">아이디</label>
 			<input id="blog-id" name="id" type="text">
-			<input id="btn-checkemail" type="button" value="id 중복체크">
-			<img id="img-checkemail" style="display: none;" src="${pageContext.request.contextPath}/assets/images/check.png">
+			<input id="btn-checkid" type="button" value="id 중복체크">
+			<img id="img-checkid" style="display: none;" src="${pageContext.request.contextPath}/assets/images/check.png">
 
 			<label class="block-label" for="password">패스워드</label>
 			<input id="password" name="password" type="password" />
