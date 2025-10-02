@@ -6,7 +6,7 @@
 
 <div id="header">
 	<h1>
-		<a href="${pageContext.request.contextPath}/${userId }">${blogVo.title }</a>
+		<a href="${pageContext.request.contextPath}/${blogVo.blogId }">${blogVo.title }</a>
 	</h1>
 	<ul>
 		<sec:authorize access="!isAuthenticated()">
